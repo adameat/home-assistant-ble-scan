@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any
 
 from homeassistant.components.bluetooth import DOMAIN as BLUETOOTH_DOMAIN
@@ -33,7 +34,7 @@ from .manager import BLEScanDevice, BLEScanManager
 class BLEScanSensorEntityDescription(SensorEntityDescription):
     """Describe a BLE Scan sensor."""
 
-    value_fn: Callable[[BLEScanDevice], float | int]
+    value_fn: Callable[[BLEScanDevice], float | int | datetime]
 
 
 SENSOR_DESCRIPTIONS: tuple[BLEScanSensorEntityDescription, ...] = (
@@ -82,6 +83,13 @@ SENSOR_DESCRIPTIONS: tuple[BLEScanSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda device: device.rssi,
+    ),
+    BLEScanSensorEntityDescription(
+        key="last_seen",
+        translation_key="last_seen",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_fn=lambda device: device.last_seen,
     ),
 )
 
@@ -151,7 +159,7 @@ class BLEScanSensor(SensorEntity):
         return self.manager.devices[self.address].available
 
     @property
-    def native_value(self) -> float | int:
+    def native_value(self) -> float | int | datetime:
         """Return the latest decoded metric."""
         return self.entity_description.value_fn(self.manager.devices[self.address])
 

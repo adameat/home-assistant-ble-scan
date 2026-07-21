@@ -19,6 +19,7 @@
     "sensor": {
       "battery": {"name": "Battery"},
       "humidity": {"name": "Humidity"},
+      "last_seen": {"name": "Last seen"},
       "signal_strength": {"name": "Signal strength"},
       "temperature": {"name": "Temperature"},
       "voltage": {"name": "Voltage"}
@@ -26,4 +27,3 @@
   },
   "title": "BLE Scan"
 }
-
