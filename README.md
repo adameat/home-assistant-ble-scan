@@ -25,8 +25,8 @@ Each detected sensor becomes a Home Assistant device with these entities:
 - humidity
 - battery percentage
 - last seen timestamp, updated for every received advertisement
-- battery voltage (diagnostic, disabled by default)
-- RSSI (diagnostic, disabled by default)
+- battery voltage (diagnostic)
+- RSSI (diagnostic)
 
 ## Installation
 

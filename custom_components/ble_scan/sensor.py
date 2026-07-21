@@ -71,7 +71,6 @@ SENSOR_DESCRIPTIONS: tuple[BLEScanSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=3,
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
         value_fn=lambda device: device.update.voltage,
     ),
     BLEScanSensorEntityDescription(
@@ -81,7 +80,6 @@ SENSOR_DESCRIPTIONS: tuple[BLEScanSensorEntityDescription, ...] = (
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
         value_fn=lambda device: device.rssi,
     ),
     BLEScanSensorEntityDescription(

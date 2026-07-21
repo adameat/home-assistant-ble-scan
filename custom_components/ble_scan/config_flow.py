@@ -15,7 +15,7 @@ from .parser import parse_atc_advertisement
 class BLEScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Configure BLE Scan."""
 
-    VERSION = 1
+    VERSION = 2
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
@@ -62,4 +62,3 @@ class BLEScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             title="BLE Scan",
             data={CONF_NAMES: dict(import_data.get(CONF_NAMES, {}))},
         )
-
