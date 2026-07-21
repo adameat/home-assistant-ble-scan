@@ -9,7 +9,6 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
 
 from .const import CONF_NAMES, DOMAIN
-from .manager import BLEScanManager
 from .parser import normalize_address
 
 PLATFORMS: list[Platform] = [Platform.SENSOR]
@@ -24,9 +23,6 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-BLEScanConfigEntry = ConfigEntry[BLEScanManager]
-
-
 async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     """Import optional YAML configuration into a config entry."""
     if domain_config := config.get(DOMAIN):
@@ -40,8 +36,10 @@ async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     return True
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: BLEScanConfigEntry) -> bool:
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up BLE Scan from a config entry."""
+    from .manager import BLEScanManager
+
     names = {
         normalize_address(address): name
         for address, name in entry.data.get(CONF_NAMES, {}).items()
@@ -55,7 +53,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: BLEScanConfigEntry) -> b
     return True
 
 
-async def async_unload_entry(hass: HomeAssistant, entry: BLEScanConfigEntry) -> bool:
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a BLE Scan config entry."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
-
