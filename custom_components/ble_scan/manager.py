@@ -52,7 +52,7 @@ class BLEScanManager:
             self._async_handle_bluetooth,
             {
                 "local_name": f"{ATC_LOCAL_NAME_PREFIX}*",
-                "service_uuid": ATC_SERVICE_UUID,
+                "service_data_uuid": ATC_SERVICE_UUID,
                 "connectable": False,
             },
             BluetoothScanningMode.PASSIVE,
@@ -142,4 +142,3 @@ class BLEScanManager:
         """Return configured name or advertised ATC name."""
         device = self.devices[address]
         return self.names.get(address, device.update.name)
-

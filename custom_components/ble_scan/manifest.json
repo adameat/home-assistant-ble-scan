@@ -5,8 +5,7 @@
   "bluetooth": [
     {
       "connectable": false,
-      "local_name": "ATC_*",
-      "service_uuid": "0000181a-0000-1000-8000-00805f9b34fb"
+      "local_name": "ATC_*"
     }
   ],
   "codeowners": ["@adameat"],
@@ -17,5 +16,5 @@
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/adameat/home-assistant-ble-scan/issues",
   "single_config_entry": true,
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
