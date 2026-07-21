@@ -1,0 +1,29 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "BLE Scan уже настроен.",
+      "not_supported": "Это Bluetooth-объявление не относится к поддерживаемому датчику в пользовательском формате ATC."
+    },
+    "step": {
+      "confirm": {
+        "description": "Настроить BLE Scan для обнаружения этого и других датчиков температуры в пользовательском формате ATC.",
+        "title": "Обнаружен датчик ATC"
+      },
+      "user": {
+        "description": "Настроить прямое Bluetooth-сканирование датчиков температуры и влажности Xiaomi в пользовательском формате ATC.",
+        "title": "Настройка BLE Scan"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery": {"name": "Батарея"},
+      "humidity": {"name": "Влажность"},
+      "signal_strength": {"name": "Уровень сигнала"},
+      "temperature": {"name": "Температура"},
+      "voltage": {"name": "Напряжение"}
+    }
+  },
+  "title": "BLE Scan"
+}
+

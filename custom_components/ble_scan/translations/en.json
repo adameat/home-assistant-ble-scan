@@ -1,0 +1,29 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "BLE Scan is already configured.",
+      "not_supported": "This Bluetooth advertisement is not a supported ATC custom-format sensor."
+    },
+    "step": {
+      "confirm": {
+        "description": "Set up BLE Scan to discover this and other ATC custom-format temperature sensors.",
+        "title": "ATC sensor discovered"
+      },
+      "user": {
+        "description": "Set up direct Bluetooth scanning for ATC custom-format Xiaomi temperature and humidity sensors.",
+        "title": "Set up BLE Scan"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery": {"name": "Battery"},
+      "humidity": {"name": "Humidity"},
+      "signal_strength": {"name": "Signal strength"},
+      "temperature": {"name": "Temperature"},
+      "voltage": {"name": "Voltage"}
+    }
+  },
+  "title": "BLE Scan"
+}
+
