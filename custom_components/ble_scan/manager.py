@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
-import logging
 
 from homeassistant.components import bluetooth
 from homeassistant.components.bluetooth import (
